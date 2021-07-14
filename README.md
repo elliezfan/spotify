@@ -7,7 +7,7 @@
 * PostgreSQL 12.7
 * Google Bigquery
 * [Meltano](https://meltano.com/docs/) 1.77.0
-* [dbt](https://www.getdbt.com/)
+* [dbt](https://www.getdbt.com/) 0.19.2
 * Apache Superset
 
 # Data
@@ -16,4 +16,8 @@ The original data comes from [here](https://www.kaggle.com/yamaerenay/spotify-da
 * artists.csv (popularity metrics of artists, 1.1M rows)
 
 # Process
-1. Data extracting and loading
+1. Data extracting and loading (`meltano.yml` under `meltano` folder):
+   * [tap-csv](https://hub.meltano.com/extractors/csv): extract raw data from csv files
+   * [target-postgre](https://hub.meltano.com/loaders/postgres): load raw data extracted into the local PostgreSQL database
+   * [target-bigquery](https://hub.meltano.com/loaders/bigquery): load raw data extracted into Google BigQuery on the cloud
+   * 

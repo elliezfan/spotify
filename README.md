@@ -20,4 +20,20 @@ The original data comes from [here](https://www.kaggle.com/yamaerenay/spotify-da
    * [tap-csv](https://hub.meltano.com/extractors/csv): extract raw data from csv files
    * [target-postgre](https://hub.meltano.com/loaders/postgres): load raw data extracted into the local PostgreSQL database
    * [target-bigquery](https://hub.meltano.com/loaders/bigquery): load raw data extracted into Google BigQuery on the cloud
-   * 
+2. Data transformation in dbt (`dbt` and `dbt_bigquery` folders):
+   Transformed raw data in PostgreSQL and BigQuery seperately in `dbt` and `dbt_bigquery` projects.
+   * `dbt_project.yml`: defines the structure of the dbt project
+   * `models` folder:
+     * staging: handle the initial data transformation that will be reflected in all downstream data models
+     * analysis: handle further data transformation on basis of the results generated from staging to build data marts for BI use
+3. Data visulization in Apache Superset:
+
+# Room for improvements
+* Get incremental data load using [Spotify APIs](https://developer.spotify.com/documentation/web-api/reference/) to feed data warehouses with fresh data periodically
+* Get data in other scopes like users, playlists, markets etc. to broaden the spectrum of the data warehouses as well as benifiting the business analytics user cases followed
+
+# Sources
+Special thanks to the below links for the project idea inspiration and the tutorials:
+* https://towardsdatascience.com/data-stacks-for-fun-nonprofit-part-iii-dcfd46da9f9f
+* https://www.startdataengineering.com/post/dbt-data-build-tool-tutorial/
+* Data Source: https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks

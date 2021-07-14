@@ -26,7 +26,12 @@ The original data comes from [here](https://www.kaggle.com/yamaerenay/spotify-da
    * `models` folder:
      * staging: handle the initial data transformation that will be reflected in all downstream data models
      * analysis: handle further data transformation on basis of the results generated from staging to build data marts for BI use
+   ![dbt server](https://github.com/elliezfan/spotify/blob/main/pic/dbt%20server.png)
+   ![linear graph](https://github.com/elliezfan/spotify/blob/main/pic/linear%20relationship.png)
+   
 3. Data visulization in Apache Superset:
+   ![superset1](https://github.com/elliezfan/spotify/blob/main/pic/superset1.png)
+   ![superset2](https://github.com/elliezfan/spotify/blob/main/pic/superset2.png)
 
 # Room for improvements
 * Get incremental data load using [Spotify APIs](https://developer.spotify.com/documentation/web-api/reference/) to feed data warehouses with fresh data periodically

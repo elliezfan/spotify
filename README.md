@@ -6,5 +6,14 @@
 * Python 3.8.10
 * PostgreSQL 12.7
 * Google Bigquery
-* Meltano 1.77.0
-* 
+* [Meltano](https://meltano.com/docs/) 1.77.0
+* [dbt](https://www.getdbt.com/)
+* Apache Superset
+
+# Data
+The original data comes from [here](https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks)
+* tracks.csv (audio features of tracks, 600k rows)
+* artists.csv (popularity metrics of artists, 1.1M rows)
+
+# Process
+1. Data extracting and loading

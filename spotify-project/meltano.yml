@@ -1,0 +1,39 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: 4866b8b2-d0f6-48ad-aba0-ac41e776ec13
+plugins:
+  extractors:
+  - name: tap-csv
+    variant: meltano
+    pip_url: git+https://gitlab.com/meltano/tap-csv.git
+    config:
+      files:
+      - entity: tracks
+        file: /home/zfan/meltano-projects/spotify-project/tracks.csv
+        keys:
+        - id
+      - entity: artists
+        file: /home/zfan/meltano-projects/spotify-project/artists.csv
+        keys:
+        - id
+  - name: tap-spreadsheets-anywhere
+    pip_url: git+https://github.com/ets/tap-spreadsheets-anywhere.git
+  loaders:
+  - name: target-postgres
+    variant: datamill-co
+    pip_url: singer-target-postgres
+    config:
+      postgres_host: localhost
+      postgres_port: 5432
+      postgres_database: spotify600k
+      postgres_username: spotify600k
+      postgres_schema: spotify
+  - name: target-bigquery
+    variant: adswerve
+    pip_url: git+https://github.com/adswerve/target-bigquery.git@v0.10.2
+    config:
+      project_id: spotify600k
+      location: US
+      credentials_path: /home/zfan/meltano-projects/spotify-project/dbt-user-creds-spotify600k.json
+
+
